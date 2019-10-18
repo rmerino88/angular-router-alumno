@@ -1,0 +1,28 @@
+<div style="text-align:center">
+  <h1>
+    Bienvenido al {{title}}!!
+  </h1>
+  <div class="eventeer" #primero *ngIf="paciente" (animationstart)="queVoyqueMancho()" backgroundcolor="white">
+    Estoy en el div <h1>primero</h1> controlado por la var paciente:bool
+  </div>
+  <div #segundo *ngIf="medico" backgroundcolor="red">
+    Estoy en el div <h1>segundo</h1> controlador por la var medico: bool
+  </div>
+  <div #cuarto *ngIf="admin" backgroundcolor="blue">
+    Estoy en el div <h1>cuarto</h1> controlado por la var admin: bool
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <input type="text" #entrada [(ngModel)]="entradilla">
+  <nav>
+    <a routerLink={{menu1}} routerLinkActive="active">{{menu1}}</a>
+    <a routerLink={{menu2}}>{{menu2}}</a>
+    <a routerLink={{menu3}}>{{menu3}}</a>
+  </nav>
+  <div #tercero *ngIf="tercero==true">
+  <button (click)="cambiaMenu()">{{boton}}</button>
+    </div>
+  <app-dashboard #dashboard (eventoEmitido)="cambiaMenu(entrada.value)" *ngIf="entradilla=='2'"></app-dashboard>
+  <app-home *ngIf="entrada=='1'"></app-home>
+</div>
